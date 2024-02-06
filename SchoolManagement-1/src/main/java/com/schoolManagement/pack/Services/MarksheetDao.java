@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.schoolManagement.pack.Model.Marksheet;
+import com.schoolManagement.pack.Model.Question;
+import com.schoolManagement.pack.Model.Test;
 import com.schoolManagement.pack.Repositories.MarksheetRepo;
 
 @Service
@@ -13,6 +15,12 @@ public class MarksheetDao {
 	
 	@Autowired
 	MarksheetRepo repo;
+	
+	@Autowired
+	QuestionClient questionClient;
+	
+	@Autowired
+	QuizClient quizClient;
 	
 	public Marksheet insert(Marksheet m) {
 		return repo.save(m);
@@ -37,5 +45,16 @@ public class MarksheetDao {
 	public void deleteById(Integer id) {
 		repo.deleteById(id);
 	}
+	
+	public List<Question> getByTestId(int id) {
+		return questionClient.getQuestionOfTest(id);
+	}
+	
+	public Test getTest(int id){
+		
+		return quizClient.getByQuizId(id);
+	}
+
+	
 
 }
