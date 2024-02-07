@@ -9,6 +9,8 @@ import com.schoolManagement.pack.Model.Marksheet;
 import com.schoolManagement.pack.Model.Question;
 import com.schoolManagement.pack.Model.Test;
 import com.schoolManagement.pack.Repositories.MarksheetRepo;
+import com.schoolManagement.pack.Repositories.QuestionClient;
+import com.schoolManagement.pack.Repositories.QuizClient;
 
 @Service
 public class MarksheetDao {
